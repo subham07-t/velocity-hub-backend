@@ -1,0 +1,55 @@
+<%- include('./includes/header.ejs') %>
+
+<div
+  style="
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+  "
+>
+  <table
+    align="center"
+    border="0"
+    cellpadding="0"
+    cellspacing="0"
+    width="100%"
+    style="
+      max-width: 720px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+    "
+  >
+    <tr>
+      <td style="text-align: center; padding-bottom: 20px">
+        <h2>Label Generation Issue</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          A critical issue that has occurred during the label generation
+          process. Your expertise and immediate attention are required to
+          resolve this matter promptly.
+        </p>
+        <p>
+          <strong>Error Details:</strong>
+        </p>
+        <p>
+          <strong>Order Number:</strong> <%= content.orderId %><br />
+          <strong>Service Provider:</strong> <%= content.serviceProvider %><br />
+          <strong>Date and Time:</strong> <%= content.dateAndTime %><br />
+          <strong>Error Code:</strong> <%= content.errorCode %><br />
+          <strong>Error Message:</strong> <%= content.errorMsg %><br />
+          <strong>Description of Issue:</strong> <%= content.errorDescription
+          %><br />
+        </p>
+
+        <p>Thank you for your immediate attention to this matter.</p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<%- include('./includes/footer.ejs') %>

@@ -1,0 +1,94 @@
+<%- include('./includes/header.ejs') %>
+
+<div
+  style="
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+  "
+>
+  <table
+    align="center"
+    border="0"
+    cellpadding="0"
+    cellspacing="0"
+    width="100%"
+    style="
+      max-width: 720px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+    "
+  >
+    <tr>
+      <td style="text-align: center; padding-bottom: 20px">
+        <h2>Courier Booking Confirmation</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          Dear <%= content.customerFirstName %> <%= content.customerLastName %>,
+        </p>
+        <p>
+          We're excited to inform you that your courier booking with Velocity
+          Hub has been confirmed! Your package is on its way to its destination.
+        </p>
+        <% if (content.shippingProvider.delivery_type === 'drop_by') { %>
+        <p>
+          Please make sure to have the package ready for drop-off at the
+          specified location. You can drop off your package at any time during
+          our business hours.
+        </p>
+        <% } else { %>
+        <p>
+          Please make sure to have the package ready for pickup at the specified
+          pickup location and time. Our courier agent will arrive to collect
+          your package as scheduled.
+        </p>
+        <% } %>
+        <p>
+          You can track the status of your package using the following order
+          number:<br />
+          <b><%= content.orderId %></b><br />
+        </p>
+        <p>
+          Click the button below to track your order and get real-time updates
+          on the delivery progress.
+        </p>
+        <p style="text-align: center">
+          <a
+            href="<%= process.env.APP_BASE_URL %>/get-order-info/?order_id=<%=content.orderId%>"
+            target="_blank"
+            style="
+              width: 50%;
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #007bff;
+              color: #ffffff;
+              text-decoration: none;
+              border-radius: 5px;
+            "
+            >Track Order</a
+          >
+        </p>
+        <p>
+          If you have any questions or need assistance, please don't hesitate to
+          contact our customer support team at 1234567890 or
+          <a href="mailto:office@velocityhub.co.uk">office@velocityhub.co.uk</a>
+        </p>
+        <p>
+          Thank you for choosing Velocity Hub for your courier needs. We look
+          forward to delivering your package safely and promptly.
+        </p>
+        <p>
+          Best regards,<br />The Velocity Hub Team<br />Melton Mowbray, 10-12
+          Park Rd, Leicestershire LE13 1TT<br />01234 567 890<br />office@velocityhub.co.uk
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<%- include('./includes/footer.ejs') %>
